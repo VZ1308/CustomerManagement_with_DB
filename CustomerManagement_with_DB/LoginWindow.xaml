@@ -1,0 +1,38 @@
+﻿<Window x:Class="Invoice_Management.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="400" Width="600"
+        MaxHeight="400" MaxWidth="600" MinHeight="300" MinWidth="600">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="113*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <TextBlock Grid.Row="0" Text="Login" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="233,20,0,10" Grid.Column="1"/>
+
+        <!-- Content Section -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Grid.Column="1" Margin="115,0,0,0">
+            <Label Content="Username:"/>
+            <TextBox x:Name="UsernameTextBox" Margin="0,0,0,10" />
+
+            <Label Content="Password:"/>
+            <PasswordBox x:Name="PasswordTextBox" Margin="0,0,0,20" />
+            <CheckBox Content="Passwort anzeigen" x:Name="ShowPasswordCheckBox" Checked="ShowPasswordCheckBox_Checked" Unchecked="ShowPasswordCheckBox_Unchecked"/>
+
+            <TextBox x:Name="PasswordTextBoxVisible" Margin="0,0,0,10" Visibility="Collapsed"/>
+
+            <Button Margin="10" Content="Login" Click="LoginButton_Click" />
+            <Button Margin="10" Content="Register" Click="RegisterButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
