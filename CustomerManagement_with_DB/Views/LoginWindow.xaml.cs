@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using CustomerManagement_with_DB;
+using CustomerManagement_with_DB.Controllers;
 using MySql.Data.MySqlClient;
 
 namespace Invoice_Management
@@ -24,10 +25,10 @@ namespace Invoice_Management
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            // Aufruf der Validierungslogik
+            if (!Validation.ValidateLogin(username, password))
             {
-                MessageBox.Show("Bitte füllen Sie alle Felder aus.", "Fehler");
-                return;
+                return; // Validierung fehlgeschlagen, daher beenden wir die Methode
             }
 
             if (dbConnector.CheckLogin(username, password))
@@ -55,12 +56,12 @@ namespace Invoice_Management
             PasswordTextBox.Visibility = Visibility.Visible;
             PasswordTextBoxVisible.Visibility = Visibility.Collapsed;
         }
+
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             this.Close();
-
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿<Window x:Class="CustomerManagement_with_DB.Views.EditCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kunde bearbeiten" Height="450" Width="550" WindowStartupLocation="CenterScreen"
+        Background="#f9f9f9">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Kunde bearbeiten" FontSize="24" FontWeight="Bold" Foreground="#333"
+                   HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+        <!-- Eingabe-Bereich mit GroupBox -->
+        <GroupBox Header="Kundendetails" Grid.Row="1" Padding="10" FontSize="14">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Labels und Eingabefelder -->
+                <TextBlock Text="Vorname:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="VornameTextBox" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5" />
+
+                <TextBlock Text="Nachname:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="NachnameTextBox" Grid.Row="1" Grid.Column="1" Margin="5" Padding="5" />
+
+                <TextBlock Text="Adresse:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="AdresseTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="5" />
+
+                <TextBlock Text="PLZ:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="PLZTextBox" Grid.Row="3" Grid.Column="1" Margin="5" Padding="5" />
+
+                <TextBlock Text="Wohnort:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="WohnortTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="5" />
+
+                <TextBlock Text="E-Mail:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox Name="EmailTextBox" Grid.Row="5" Grid.Column="1" Margin="5" Padding="5" />
+            </Grid>
+        </GroupBox>
+
+        <!-- Buttons für Aktionen -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Name="SaveButton" Content="Speichern" Width="100" Margin="5" Click="SaveButton_Click"/>
+            <Button Name="CancelButton" Content="Abbrechen" Width="100" Margin="5" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

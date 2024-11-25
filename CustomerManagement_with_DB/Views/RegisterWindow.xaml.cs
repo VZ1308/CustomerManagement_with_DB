@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using CustomerManagement_with_DB.Controllers;
 using MySql.Data.MySqlClient;
 
 namespace CustomerManagement_with_DB
@@ -19,16 +20,9 @@ namespace CustomerManagement_with_DB
             string password = PasswordBox.Password;
             string confirmPassword = ConfirmPasswordBox.Password;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+            if (!Validation.ValidateRegistration(username, password, confirmPassword))
             {
-                MessageBox.Show("Bitte füllen Sie alle Felder aus.", "Fehler");
-                return;
-            }
-
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Passwörter stimmen nicht überein.", "Fehler");
-                return;
+                return; 
             }
 
             try
@@ -39,7 +33,7 @@ namespace CustomerManagement_with_DB
                     string query = "INSERT INTO Benutzer (Benutzername, Passwort) VALUES (@username, @password)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@password", password); 
                     cmd.ExecuteNonQuery();
                 }
 
